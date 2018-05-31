@@ -12,15 +12,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-
+import org.openqa.selenium.ie.InternetExplorerDriver;
 public class HelloTest {
 
 	WebDriver driver;
 	@BeforeTest
 	public void beforeTest() {
 		
-		System.setProperty("webdriver.chrome.driver","resources\\chromedriver.exe");
-		driver = new ChromeDriver();
+		System.setProperty("webdriver.gecko.driver","resources\\IEDriverServer.exe");
+		driver = new InternetExplorerDriver();
 		driver.get("http://demoaut.com");
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		
@@ -31,7 +31,7 @@ public class HelloTest {
 
 		String text1 = driver.findElement(By.xpath("//tr[@align = 'right']/td[@colspan = '2']/font[@size = '2' and @face = 'Arial, Helvetica, sans-serif, Verdana']/b")).getText();
 		System.out.println("The date is: "+text1);
-		driver.findElement(By.name("userName")).sendKeys("remi");
+		driver.findElement(By.name("userName")).sendKeys("Feroze");
 		String text = driver.findElement(By.name("userName")).getAttribute("value");
 		System.out.println("The Username entered is: "+text);
 
