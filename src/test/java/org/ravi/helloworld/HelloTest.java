@@ -19,7 +19,7 @@ public class HelloTest {
 	@BeforeTest
 	public void beforeTest() {
 		
-		System.setProperty("webdriver.gecko.driver","resources\\IEDriverServer.exe");
+		System.setProperty("webdriver.ie.driver","resources\\IEDriverServer.exe");
 		driver = new InternetExplorerDriver();
 		driver.get("http://demoaut.com");
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
