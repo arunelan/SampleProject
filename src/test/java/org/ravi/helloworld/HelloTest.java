@@ -1,46 +1,33 @@
-package org.ravi.helloworld;
+package Test;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
-import static org.testng.Assert.assertTrue;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
+import org.openqa.selenium.firefox.GeckoDriverService;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-public class HelloTest {
+import org.testng.annotations.AfterTest;
 
+
+public class SampleTest {
 	WebDriver driver;
-	@BeforeTest
-	public void beforeTest() {
-		
-		System.setProperty("webdriver.ie.driver","resources\\IEDriverServer.exe");
-		driver = new InternetExplorerDriver();
-		driver.get("http://demoaut.com");
-		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
-		
-	}
+	
+  @Test
+  public void f() {
+	  System.setProperty("webdriver.ie.driver","C:\\Users\\training_c2a.05.01\\Desktop\\eclipse\\com\\src\\test\\resources\\IEDriverServer.exe");
+	  driver = new InternetExplorerDriver();
+	  driver.get("http://www.google.co.in");
+	  System.out.println("test method"); 
+  }
+  @BeforeTest
+  public void beforeTest() {
+	  System.out.println("Invoking before test method");
+  }
 
-	@Test
-	public void f() {
-
-		String text1 = driver.findElement(By.xpath("//tr[@align = 'right']/td[@colspan = '2']/font[@size = '2' and @face = 'Arial, Helvetica, sans-serif, Verdana']/b")).getText();
-		System.out.println("The date is: "+text1);
-		driver.findElement(By.name("userName")).sendKeys("Feroze");
-		String text = driver.findElement(By.name("userName")).getAttribute("value");
-		System.out.println("The Username entered is: "+text);
-
-	}
-
-	@AfterTest
-	public void afterTest() {
-		driver.close();
-	}
-
+  @AfterTest
+  public void afterTest() {
+	  System.out.println("Invoking After test method");
+  }
 
 }
